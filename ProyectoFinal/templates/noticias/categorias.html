@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container m-3 text-bg-dark mx-auto">
+    <div class="row">
+        {% for n in object_list %}
+        <div class="card col-xs-12 col-sm-6 col-md-3 col-lg-2 text-bg-dark">
+            <a href="#" class="text-decoration-none">
+                <img class="img-cat" src="{{n.imagen_cat.url}}" alt="Imagen de la categoria" style="height: 140px; object-fit: contain; margin:0 auto;">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock contenido %}

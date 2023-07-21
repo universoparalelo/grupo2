@@ -1,0 +1,81 @@
+body{
+    background-color: #1b1f22;
+}
+
+ 
+.header{
+    background-color: #3b4049;
+    /* background-color: #712cf9; */
+    border-bottom: #712cf9 2px solid;
+}
+
+.search{
+    background-color: #3b4049;
+    color: #ffffff9a;
+    border: #000 1px solid;
+}
+
+.search:focus{
+    background-color: #50555f;
+    color: #ffffff9a;
+    border: #712cf9 1px solid;
+    box-shadow: 0px 0px 5px #712cf9;
+}
+
+.icon{
+    font-size: 2rem;
+    color: #000;
+}
+
+.icon:hover{
+    color: #291257;
+}
+
+.footer{
+    border-top: #712cf9 2px solid;
+    background-color: #2e323a;
+    color: black;
+}
+
+
+/* NAVEGACION */
+.fa-filter, .fa-caret-down{
+    color:#ffffff9a
+}
+
+.log{
+    color: #0000008c;
+}
+
+.log:hover{
+    color: black;
+}
+
+.btn-go{
+    background-color: #712cf9;
+    color: #fff;
+}
+
+.btn-go:hover{
+    background-color: #5320b9;
+}
+
+/* CONTACTO */
+
+.form-floating > input,
+.form-floating > textarea{
+    background-color: #444;
+}
+
+.form-floating > input:focus,
+.form-floating > textarea:focus{
+    background-color: #50555f;
+    color: #ffffff9a;
+    box-shadow: 0px 0px 5px #712cf9;
+}
+
+
+
+
+
+

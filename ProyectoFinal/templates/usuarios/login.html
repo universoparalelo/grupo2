@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="form container text-center text-bg-dark m-3 p-3 mx-auto">
+    <h3>Inicio sesión</h3>
+    <hr>
+    <div class="row py-auto">
+        <form class="col-md-6 offset-md-3 col-sm-12 offset-sm-0" method="POST">{% csrf_token %}
+            {{form.errors}}
+            <div class="my-2">
+            <label class="form-label">Usuario</label>
+            <input type= "text" name= "username" placeholder="USUARIO">
+            </div>
+            <div class="py-2">
+            <label class="form-label">Contraseña</label>
+            <input type="password" name="password" placeholder="PASSWORD">
+            </div>
+            <div class="align-items-center py-2">
+                <input type="submit" class="btn btn-go" value="Confirmar">
+            </div>
+        </form>
+        <hr>
+    </div>
+</div>
+{% endblock contenido %}

@@ -11,6 +11,16 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'new_db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default' : {
+#         'ENGINE' : 'django.db.backends.mysql',
+#         'NAME' : 'proyectoBlog',
+#         'USER' : 'root',
+#         'PASSWORD' : 'celeste',
+#         'HOST' : 'localhost',
+#     }
+# }

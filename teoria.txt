@@ -1,0 +1,67 @@
+Creacion de una base de datos y conexion con django
+
+
+1) En el archivo local.py:
+
+DATABASES = {
+    'default' : {
+        'ENGINE' : 'django.db.backends.mysql',
+        'NAME' : 'etiqueta',
+        'USER' : 'root',
+        'PASSWORD' : 'celeste',
+        'HOST' : 'localhost',
+    }
+}
+
+2) Crear la base de datos en mysql
+
+3) Instalar el conector 'pip install mysqlclient'
+
+4) Corroborar que todo funciono 'python manage.py makemigrations'
+
+Si aparece esto 'No changes detected' salió todo bien :)
+
+5) Migrar todas las tablas, supongo, 'python manage.py migrate'
+
+
+Creacion de vistas y modelos
+
+
+1) Dentro de la carpeta apps ejecutamos el siguiente comando 'django-admin startapp <nombreDeLaVista>'
+
+ejemplo: django-admin startapp articulos
+
+2) Avisarle a django que cree una aplicacion, dentro de base.py, en INSTALLED_APPS se agrega 'apps.articulos'
+
+3) Vamos al archivo dentro de apps/apps.py y agregamos apps. en la variable name.
+
+4) Dentro de la aplicacion creada a la altura de views.py creamos un archivo urls.py
+
+5) En el archivo urls.py principal, no el que esta dentro de la aplicacion, sino del proyecto en general, agregamos esta url 
+'path('Articulos', include('apps.articulos.urls'))'
+incluyendo la funcion 'include' dentro de 'from django.urls import path,'
+
+6) Ahora si dentro del archivo urls.py que esta dentro de la nueva aplicacion copiamos la vista principal del urls.py principal
+
+from django.urls import path
+from . import views
+
+app_name = 'articulos'
+
+urlpatterns = [
+    path('articulo', views.Articulo, name = 'articulo'),
+]
+
+esto es solo ejemplo
+
+7) Creamos una vista en el archivo views.py dentro de la aplicacion, creamos los htmls y carpetas correspondientes
+url articulos:articulo
+
+8) Dentro de models.py creamos nuestras tablas con los campos que queramos 
+https://docs.djangoproject.com/en/4.2/ref/models/fields/
+
+9) Una vez creados los modelos
+'python manage.py makemigrations'
+'python manage.py migrate'
+
+Tablas creadas :)

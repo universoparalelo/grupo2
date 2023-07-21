@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Registro {% endblock %}
+{% block contenido %}
+<main role="main">
+    <div class="container text-bg-dark mb-4">
+        <div class="row mt-3">
+            <form class="col-md-9 mb-2 mx-auto" action="" method="post">{% csrf_token %}
+                <h3 class="my-4">Registro</h3>
+                <hr>
+                {{form.as_p}}
+                <input type="submit" class="btn btn-go d-block mx-auto mb-3" value="Confirmar">
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock contenido %}

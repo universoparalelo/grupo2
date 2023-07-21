@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container pb-5">
+    <div class="row">
+        <div class="section mt-3 text-bg-dark col-lg-8 offset-lg-2 col-sm-12 offset-sm-0">
+            <h3 class="pt-3">Contáctanos</h3>
+            <hr>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingName" placeholder="Nombre">
+                <label for="floatingName">Nombre</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingAsunto" placeholder="Asunto">
+                <label for="floatingAsunto">Asunto</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Comentario" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Comentario</label>
+            </div>
+            <button type="submit" class="btn btn-go mx-auto d-block px-3 mb-3">Enviar</button>
+        </div>
+        
+    </div>
+</div>
+{% endblock contenido %}
