@@ -29,8 +29,12 @@ urlpatterns = [
     path('sobre-nosotros', views.SobreNosotros, name = 'sobre-nosotros'),
     path('contacto', views.Contacto, name = 'contacto'),
 
+    # NOTICIAS ORDENADAS SEGUN...
+    path('ord-fecha-desc/', views.OrdFechaDesc, name="ord-fecha-desc"),
+    path('ord-tit-asc/', views.OrdTitAsc, name="ord-tit-asc"),
+    path('ord-tit-desc/', views.OrdTitDesc, name="ord-tit-desc"),
+
     # URLS DE AUTH
-    # URLS de auth
     path('login/', auth.LoginView.as_view(template_name="usuarios/login.html"), name='login'),
     path('logout/', auth.LogoutView.as_view(), name='logout'),
 

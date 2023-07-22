@@ -67,9 +67,19 @@ def DetalleNoticia(request, pk):
     ctx = {}
 
     detalle_noticia = Noticia.objects.get(id = pk)
-    comentarios = Comentario.objects.filter(noticia = pk)
+    comentarios = Comentario.objects.filter(noticia = pk).order_by('-creado')
 
     ctx['detalle'] = detalle_noticia
     ctx['lista_comentarios'] = comentarios
 
     return render(request, 'noticias/detalle.html', ctx)
+
+
+def NoticiasPorCategoria(request, pk):
+	# pk de la categoria
+	ctx = {}
+	
+	ctx['noticia'] = Noticia.objects.filter(categoria = pk)
+	ctx['nom_cat'] = Categoria.objects.get(id = pk)
+
+	return render(request, 'noticias/noticiasPorCat.html', ctx)

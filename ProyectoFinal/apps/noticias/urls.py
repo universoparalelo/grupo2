@@ -24,4 +24,7 @@ urlpatterns = [
 
     # Detalle de una noticia
     path('detalle-noticia/<int:pk>', views.DetalleNoticia, name='detalle_noticia'),
+
+    # Noticias por categoria
+    path('not-categoria/<int:pk>', views.NoticiasPorCategoria, name='not_categoria'),
 ]

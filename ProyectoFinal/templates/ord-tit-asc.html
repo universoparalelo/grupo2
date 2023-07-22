@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="section container ">
+		
+	<div class="dropdown my-2">
+		<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<i class="fa fa-solid fa-filter"></i>
+		</button>
+		<ul class="dropdown-menu bg-dark text-light">
+		  <li><a class="dropdown-item bg-dark text-light" href="{% url 'noticias:categorias' %}">Categorias</a></li>
+		  <li><a class="dropdown-item bg-dark text-light" href="{% url 'ord-fecha-desc' %}">Primeras noticias</a></li>
+		  <li><a class="dropdown-item bg-dark text-light" href="{% url 'ord-tit-asc' %}">Titulos asc</a></li>
+          <li><a class="dropdown-item bg-dark text-light" href="{% url 'ord-tit-desc' %}">Titulos desc</a></li>
+		</ul>
+	</div>
+	<div class="row text-bg-dark p-4">
+		<div class="col-12">
+			<h4>Noticias ordenadas por titulo en orden ascendiente</h4>
+			<hr>
+		</div>
+			{% for n in object_list %}
+			<div class="card text-bg-dark col-sm-12 col-md-6 col-lg-4">
+				<img src="{{n.imagen.url}}" class="card-img-top" alt="..." style="height: 150px; object-fit: contain;">
+				<div class="card-body">
+					<p style="color: #999;">{{n.categoria}}</p>
+					<h5 class="card-title">{{n.titulo}}</h5>
+					<p>{{n.creado}}</p>
+					<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer más</a>
+				</div>
+			</div>
+			{% endfor %}
+	</div>
+</div>
+<hr>
+{% endblock contenido %}

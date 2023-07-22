@@ -29,26 +29,26 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active fs-6 fw-bold" aria-current="page" href="{% url 'inicio' %}">Home</a>
+                <a class="nav-link fs-6" aria-current="page" href="{% url 'inicio' %}" style="color: #bbb;">Home</a>
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link fs-6 fw-bold" href="{% url 'noticias:misNoticias' %}">Mis noticias</a>
+                <a class="nav-link fs-6" href="{% url 'noticias:misNoticias' %}" style="color: #bbb;">Mis noticias</a>
               </li>
               {% endif %}
               <li class="nav-item">
-                <a class="nav-link fs-6 fw-bold" href="{% url 'sobre-nosotros' %}">Sobre nosotros</a>
+                <a class="nav-link fs-6" href="{% url 'sobre-nosotros' %}" style="color: #bbb;">Sobre nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-6 fw-bold" href="{% url 'contacto' %}">Contacto</a>
+                <a class="nav-link fs-6" href="{% url 'contacto' %}" style="color: #bbb;">Contacto</a>
               </li>
             </ul>
             <div class="d-flex gap-3 mt-3 mb-2">
               {% if user.is_authenticated %}
-              <a href="{% url 'logout' %}" class="fs-6 fw-bold text-decoration-none log">Salir</a>
+              <a href="{% url 'logout' %}" class="fs-6 text-decoration-none log" style="color: #bbb;">Salir</a>
               {% else %}
-              <a href="{% url 'login' %}" class="fs-6 fw-bold text-decoration-none log">Login</a>
-              <a href="{% url 'usuarios:registro' %}" class="fs-6 fw-bold text-decoration-none log">Sign in</a>
+              <a href="{% url 'login' %}" class="fs-6 text-decoration-none log" style="color: #bbb;">Iniciar sesión</a>
+              <a href="{% url 'usuarios:registro' %}" class="fs-6 text-decoration-none log" style="color: #bbb;">Registrarse</a>
               {% endif %}
             </div>
           </div>
@@ -87,5 +87,6 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
   </body>
 </html>
