@@ -87,16 +87,11 @@ body{
     filter: alpha(opacity=50);
 }
 
-/* NOTICIA SOLA MAYOR */
 
-.div-noticia-sola{
-    width: 50% !important;
-}
+/* LISTA DE REDES SOCIALES EN CONTACTOS */
 
-@media (max-width: 768px){
-    .div-noticia-sola{
-        width: 100%;
-    }
+.links-interes:hover{
+    color: #666;
 }
 
 

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+  <div class="container text-bg-dark">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto mb-3">
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}         
+         <h3 class="my-4">Modificar el comentario: "{{object.titulo}}"</h3>
+          {{form.as_p}}
+          <p><input type="submit" class="btn btn-go btn-block" value="Confirmar"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock contenido %}
