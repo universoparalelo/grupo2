@@ -24,7 +24,7 @@ class Noticia(models.Model):
 	contenido = models.TextField()
 	autor = models.ForeignKey(User, on_delete = models.CASCADE)
 	imagen = models.ImageField(upload_to = 'noticias')
-	categoria = models.ForeignKey(Categoria, on_delete = models.CASCADE)
+	categoria = models.ManyToManyField(Categoria, blank=False)
 
 	def __str__(self):
 		return self.titulo

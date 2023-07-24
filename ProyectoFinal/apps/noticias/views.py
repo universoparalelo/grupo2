@@ -64,15 +64,16 @@ class ModificarNoticia(UpdateView):
 	
 
 def DetalleNoticia(request, pk):
-    ctx = {}
+	ctx = {}
 
-    detalle_noticia = Noticia.objects.get(id = pk)
-    comentarios = Comentario.objects.filter(noticia = pk).order_by('-creado')
+	detalle_noticia = Noticia.objects.get(id = pk)
+	comentarios = Comentario.objects.filter(noticia = pk).order_by('-creado')
 
-    ctx['detalle'] = detalle_noticia
-    ctx['lista_comentarios'] = comentarios
 
-    return render(request, 'noticias/detalle.html', ctx)
+	ctx['detalle'] = detalle_noticia
+	ctx['lista_comentarios'] = comentarios
+
+	return render(request, 'noticias/detalle.html', ctx)
 
 
 def NoticiasPorCategoria(request, pk):
