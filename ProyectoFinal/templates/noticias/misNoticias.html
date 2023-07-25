@@ -14,6 +14,11 @@
 				<img src="{{n.imagen.url}}" class="card-img-top" alt="Imagen de la noticia" style="height: 150px; object-fit: contain;">
 				<div class="card-body">
 				  <h5 class="card-title">{{n.titulo}}</h5>
+				  <div class="d-flex pb-2">
+					{% for cat in n.categoria.all %}
+					<div class="btn-categoria-{{cat.pk}}" style="width: 15px; height: 10px;" title="{{cat.nombre}}"></div>
+					{% endfor %}
+					</div>
 				  <p class="card-text">{{n.descripcion}}</p>
 				  <a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer mas</a>
 				  <a href="{% url 'noticias:modificar_noticia' n.pk %}" class="btn btn-go"><i class="fa fa-regular fa-feather"></i></a>

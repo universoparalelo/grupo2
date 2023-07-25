@@ -181,6 +181,7 @@ body{
   background-color:rgb(31,151,213) ;
 }
 
+
 .btn-categoria-15{
   background-color:rgb(89,187,71) ;
 }
@@ -193,8 +194,17 @@ body{
   background-color:rgb(19,72,107);
 }
 
-  /* FORMULARIO CREACION DE NOTICIA */
+/*  FORMULARIO REGISTRO */
+#contenedor-registro{
+  width: 50% !important;
+}
 
+
+@media (min-width:992px) {
+ #contenedor-registro{
+  width:100%;
+ }
+}
  
 
 

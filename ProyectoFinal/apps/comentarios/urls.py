@@ -13,4 +13,7 @@ urlpatterns = [
     # Borrar comentario
     path('modificar-comentario/<int:pk>', views.ModificarComentario.as_view(), name="modificar_comentario"),
 
+    # Seccion mis comentarios
+    path('mis-comentarios', views.MisComentarios, name='misComentarios'),
+
 ]

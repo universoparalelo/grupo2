@@ -24,7 +24,11 @@
 		<div class="card text-bg-dark col-sm-12 col-md-6 col-lg-4 p-2">
 			<img src="{{n.imagen.url}}" class="card-img-top" alt="..." style="height: 150px; object-fit: contain;">
 			<div class="card-body">
-				<p style="color: #999;">{{n.categoria}}</p>
+				<div class="d-flex pb-2">
+					{% for cat in n.categoria.all %}
+					<div class="btn-categoria-{{cat.pk}}" style="width: 15px; height: 10px;" title="{{cat.nombre}}"></div>
+					{% endfor %}
+				</div>
 				<h5 class="card-title">{{n.titulo}}</h5>
 				<p>{{n.creado}}</p>
 				<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer más</a>
@@ -38,7 +42,7 @@
 		</div>
 		<div class="d-lg-flex col-12 p-2">
 			
-			<!-- <div class="col-lg-6 col-md-12 p-1 text-center">
+			<div class="col-lg-6 col-md-12 p-1 text-center">
 
 				<div class="text-center">
 					<h1 class="fs-30 fw-bold">{{sola.titulo}}</h1>
@@ -57,12 +61,12 @@
 				<div class="text-bg-dark d-flex flex-row align-items-center p-3 border border-dark-subtle m-2 rounded">
 					<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="text-decoration-none">
 						<div class="card-body">
-							<p style="color: #999;">{{n.categoria}}</p>
+							<!-- <p style="color: #999;">{{n.categoria}}</p> -->
 							<h5 style="color: #bbb;" class="card-title">{{n.titulo}}</h5>
 						</div>
 					</a>
 				</div>
-				{% endfor %} -->
+				{% endfor %}
 
 			</div>
 

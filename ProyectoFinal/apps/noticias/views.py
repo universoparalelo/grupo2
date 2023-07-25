@@ -36,7 +36,7 @@ class CrearNoticia(LoginRequiredMixin, CreateView):
     
 def MisNoticias(request):
 	ctx = {}
-	lista_noticias = Noticia.objects.filter(autor = request.user)
+	lista_noticias = Noticia.objects.filter(autor = request.user).order_by('-creado')
 	print(lista_noticias)
 	ctx['object_list'] = lista_noticias
 
@@ -68,7 +68,6 @@ def DetalleNoticia(request, pk):
 
 	detalle_noticia = Noticia.objects.get(id = pk)
 	comentarios = Comentario.objects.filter(noticia = pk).order_by('-creado')
-
 
 	ctx['detalle'] = detalle_noticia
 	ctx['lista_comentarios'] = comentarios

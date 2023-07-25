@@ -32,8 +32,13 @@
                 <a class="nav-link fs-6" aria-current="page" href="{% url 'inicio' %}" style="color: #bbb;">Home</a>
               </li>
               {% if user.is_authenticated %}
+              {% if user.is_staff %}
               <li class="nav-item">
                 <a class="nav-link fs-6" href="{% url 'noticias:misNoticias' %}" style="color: #bbb;">Mis noticias</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link fs-6" href="{% url 'comentarios:misComentarios' %}" style="color: #bbb;">Mis comentarios</a>
               </li>
               {% endif %}
               <li class="nav-item">

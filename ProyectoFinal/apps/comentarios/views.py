@@ -19,11 +19,30 @@ def Agregar(request,pk):
 
 class BorrarComentario(DeleteView):
 	model = Comentario
-	success_url = reverse_lazy('noticias:misNoticias')
+
+	def get_success_url(self):        
+		return reverse_lazy('noticias:detalle',kwargs={'pk': self.object.noticia.pk})
 	
 
 class ModificarComentario(UpdateView):
 	model = Comentario
 	form_class = Form_Modificacion
 	template_name = 'noticias/modificar.html'
-	success_url = reverse_lazy('noticias:misNoticias')
+
+	def get_success_url(self):        
+		return reverse_lazy('noticias:detalle',kwargs={'pk': self.object.noticia.pk})
+
+
+def MisComentarios(request):
+	ctx={}
+
+	misComentarios = Comentario.objects.filter(usuario_id = request.user).order_by('-creado')
+	listaCom = []
+
+	for com in misComentarios:
+		nuevoCom = Noticia.objects.get(id = com.noticia_id)
+		listaCom.append(nuevoCom)
+
+	ctx['com'] = listaCom
+	
+	return render(request, 'comentarios/misComentarios.html', ctx)
