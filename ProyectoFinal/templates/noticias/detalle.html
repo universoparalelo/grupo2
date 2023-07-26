@@ -24,12 +24,16 @@
         <img class="rounded mx-auto d-block" src="{{detalle.imagen.url}}" alt="Imagen de la noticia" width="400px">
         <p class="mx-auto w-75 pt-3">{{detalle.contenido}}</p>
         <p class="italic">Ultima modificacion: {{detalle.modificado}}</p>
-        {% if user.is_staff %}
+        
         <div class="d-flex justify-content-end">
+          {% if perms.noticias.change_noticia%}
           <a href="{% url 'noticias:modificar_noticia' detalle.pk %}" class="btn btn-go mx-4"><i class="fa fa-regular fa-feather"></i></a>
+          {% endif%}
+          {% if perms.noticias.delete_noticia%}
 				  <a href="{% url 'noticias:borrar_noticia' detalle.pk %}" class="btn btn-go me-4"><i class="fa fa-solid fa-trash"></i></a>
+          {% endif%} 
         </div>
-        {% endif %}
+          
         <hr>
         <h4>COMENTARIOS</h4>
         <div class="row" class="mb-3">
@@ -48,15 +52,17 @@
             <h4>{{n.usuario}}</h4>
             <p>{{n.texto}}</p>
             <p>{{n.creado}}</p>
-            {% if user.is_staff or user == n.usuario %}
             <div class="mb-2">
+              {% if perms.comentarios.change_comentario or user == n.usuario%} 
               <a href="{% url 'comentarios:modificar_comentario' n.pk %}" class="btn btn-go"><i class="fa fa-regular fa-feather"></i></a>
+              {% endif %}
+              {% if perms.comentarios.delete_comentario or user == n.usuario%}
 				      <a href="{% url 'comentarios:borrar_comentario' n.pk %}" class="btn btn-go"><i class="fa fa-solid fa-trash"></i></a>
             </div>
-            {% endif %}
+              {%endif%}
           </div>
-          <hr>
           {% endfor %}
+          <hr>
           </div>
   </div>
 

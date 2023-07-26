@@ -19,7 +19,7 @@ def Agregar(request,pk):
 
 class BorrarComentario(DeleteView):
 	model = Comentario
-
+	permission_required = 'comentarios.delete_comentario'
 	def get_success_url(self):        
 		return reverse_lazy('noticias:detalle',kwargs={'pk': self.object.noticia.pk})
 	
@@ -27,10 +27,11 @@ class BorrarComentario(DeleteView):
 class ModificarComentario(UpdateView):
 	model = Comentario
 	form_class = Form_Modificacion
-	template_name = 'noticias/modificar.html'
+	template_name = 'comentarios/modificar.html'
+	permission_required = 'comentarios.change_noticia'
 
 	def get_success_url(self):        
-		return reverse_lazy('noticias:detalle',kwargs={'pk': self.object.noticia.pk})
+		return reverse_lazy('noticias:detalle-noticia',kwargs={'pk': self.object.noticia.pk})
 
 
 def MisComentarios(request):

@@ -4,9 +4,10 @@
 {% block contenido %}
 
 <div class="container text-bg-dark my-3">
+	{%if perms.noticias.add_noticia %}
     <div class="row">
             <a class="col-lg-12 btn-go btn" href="{% url 'noticias:crearNoticia' %}" class="btn-go btn">Crear una noticia</a>
-        
+    {%endif%}    
     </div>
     <div class="row">
         {% for n in object_list %}

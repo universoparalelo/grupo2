@@ -31,16 +31,18 @@
               <li class="nav-item">
                 <a class="nav-link fs-6" aria-current="page" href="{% url 'inicio' %}" style="color: #bbb;">Home</a>
               </li>
-              {% if user.is_authenticated %}
-              {% if user.is_staff %}
+              {% if perms.noticias.add_noticia%}
               <li class="nav-item">
                 <a class="nav-link fs-6" href="{% url 'noticias:misNoticias' %}" style="color: #bbb;">Mis noticias</a>
               </li>
               {% endif %}
+              {% if user.is_authenticated %}
               <li class="nav-item">
+                
                 <a class="nav-link fs-6" href="{% url 'comentarios:misComentarios' %}" style="color: #bbb;">Mis comentarios</a>
               </li>
-              {% endif %}
+              {% endif%}
+              
               <li class="nav-item">
                 <a class="nav-link fs-6" href="{% url 'sobre-nosotros' %}" style="color: #bbb;">Sobre nosotros</a>
               </li>
@@ -50,7 +52,8 @@
             </ul>
             <div class="d-flex gap-3 mt-3 mb-2">
               {% if user.is_authenticated %}
-              <a href="{% url 'logout' %}" class="fs-6 text-decoration-none log" style="color: #bbb;">Salir</a>
+              <p class="fs-6 text-decoration-none log" style="color: #bbb;"> Usuario: {{ user.get_username }} </p>
+              <a href="{% url 'logout' %}" class="fs-6 text-decoration-none log" style="color: #bbb;">Cerrar Sesion</a>
               {% else %}
               <a href="{% url 'login' %}" class="fs-6 text-decoration-none log" style="color: #bbb;">Iniciar sesión</a>
               <a href="{% url 'usuarios:registro' %}" class="fs-6 text-decoration-none log" style="color: #bbb;">Registrarse</a>
