@@ -12,7 +12,8 @@ class Form_Alta(forms.ModelForm):
                 'type': 'checkbox', 
                 'value': '',
                 'id':'defaultCheck1',
-            })
+            }),
+             
         }
 
 

@@ -22,11 +22,15 @@
 		</div>
 			{% for n in object_list %}
 			<div class="card text-bg-dark col-sm-12 col-md-6 col-lg-4">
-				<img src="{{n.imagen.url}}" class="card-img-top" alt="..." style="height: 150px; object-fit: contain;">
+				<img src="{{n.imagen.url}}" class="card-img-top my-2" alt="..." style="height: 150px; object-fit: contain;">
+				<div class="d-flex">
+					{% for cat in n.categoria.all %}
+					<div class="btn-categoria-{{cat.pk}}" style="width: 15px; height: 10px;" title="{{cat.nombre}}"></div>
+					{% endfor %}
+					</div>
 				<div class="card-body">
-					<p style="color: #999;">{{n.categoria}}</p>
 					<h5 class="card-title">{{n.titulo}}</h5>
-					<p>{{n.creado}}</p>
+					<p><em>{{n.creado}}</em></p>
 					<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer más</a>
 				</div>
 			</div>

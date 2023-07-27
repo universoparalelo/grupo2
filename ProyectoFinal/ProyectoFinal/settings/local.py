@@ -14,13 +14,3 @@ DATABASES = {
         'NAME': BASE_DIR / 'new_db.sqlite3',
     }
 }
-
-# DATABASES = {
-#     'default' : {
-#         'ENGINE' : 'django.db.backends.mysql',
-#         'NAME' : 'proyectoBlog',
-#         'USER' : 'root',
-#         'PASSWORD' : 'celeste',
-#         'HOST' : 'localhost',
-#     }
-# }

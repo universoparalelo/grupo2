@@ -30,7 +30,7 @@
 					{% endfor %}
 				</div>
 				<h5 class="card-title">{{n.titulo}}</h5>
-				<p>{{n.creado}}</p>
+				<p><em>{{n.creado}}</em></p>
 				<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer más</a>
 			</div>
 		</div>
@@ -46,14 +46,14 @@
 
 				<div class="text-center">
 					<h1 class="fs-30 fw-bold">{{sola.titulo}}</h1>
-					<h4 style="color: #999;">{{sola.descripcion}}</h4>
+					<!-- <h4 style="color: #999;">{{sola.descripcion}}</h4> -->
 				</div>
-				<h6>Fecha de publicacion: {{sola.creado}}</h6>
-				<h6>Autor: {{sola.autor}}</h6>
+				<h6>Fecha de publicacion: <em>{{sola.creado}}</em></h6>
+				<h6>Autor: <em>{{sola.autor}}</em></h6>
 				<hr>
 				<img class="rounded mx-auto d-block pb-4" src="{{sola.imagen.url}}" alt="Imagen de la noticia" style="height: 250px; object-fit: contain;">
-				<p style="color: #999;">{{sola.contenido}}</p>
-
+				<p style="color: #999;">{{sola.contenido|truncatechars:450}}</p>
+				<a href="{% url 'noticias:detalle_noticia' sola.pk %}" class="btn btn-go">Leer más</a>
 			</div>
 			<div class="p-1">
 
@@ -61,8 +61,12 @@
 				<div class="text-bg-dark d-flex flex-row align-items-center p-3 border border-dark-subtle m-2 rounded">
 					<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="text-decoration-none">
 						<div class="card-body">
-							<!-- <p style="color: #999;">{{n.categoria}}</p> -->
 							<h5 style="color: #bbb;" class="card-title">{{n.titulo}}</h5>
+							<div class="d-flex pt-2">
+								{% for cat in n.categoria.all %}
+								<div class="btn-categoria-{{cat.pk}}" style="width: 15px; height: 10px;" title="{{cat.nombre}}"></div>
+								{% endfor %}
+							</div>
 						</div>
 					</a>
 				</div>

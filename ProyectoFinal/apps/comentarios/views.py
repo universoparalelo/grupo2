@@ -21,7 +21,7 @@ class BorrarComentario(DeleteView):
 	model = Comentario
 	permission_required = 'comentarios.delete_comentario'
 	def get_success_url(self):        
-		return reverse_lazy('noticias:detalle',kwargs={'pk': self.object.noticia.pk})
+		return reverse_lazy('noticias:detalle_noticia',kwargs={'pk': self.object.noticia.pk})
 	
 
 class ModificarComentario(UpdateView):
@@ -31,7 +31,7 @@ class ModificarComentario(UpdateView):
 	permission_required = 'comentarios.change_noticia'
 
 	def get_success_url(self):        
-		return reverse_lazy('noticias:detalle-noticia',kwargs={'pk': self.object.noticia.pk})
+		return reverse_lazy('noticias:detalle_noticia',kwargs={'pk': self.object.noticia.pk})
 
 
 def MisComentarios(request):

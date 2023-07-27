@@ -27,7 +27,8 @@ def Categorias(request):
 
 
 
-class CrearNoticia(PermissionRequiredMixin, CreateView):
+# class CrearNoticia(PermissionRequiredMixin, CreateView):
+class CrearNoticia( CreateView):
 	model = Noticia
 	form_class = Form_Alta
 	template_name = 'noticias/crearNoticia.html'
@@ -71,15 +72,16 @@ class ModificarNoticia(PermissionRequiredMixin,UpdateView):
 	template_name = 'noticias/modificar.html'
 	success_url = reverse_lazy('noticias:misNoticias')
 	permission_required = 'noticias.change_noticia'
-	permission_denied_message = 'NO ESTAS AUTORIZADO PARA REALIZAR CAMBIOS '
+	permission_denied_message = 'NO ESTAS AUTORIZADO PARA REALIZAR CAMBIOS'
 	
 
 def DetalleNoticia(request, pk):
 	ctx = {}
+	mis_com = []
 
 	detalle_noticia = Noticia.objects.get(id = pk)
 	comentarios = Comentario.objects.filter(noticia = pk).order_by('-creado')
-
+	
 	ctx['detalle'] = detalle_noticia
 	ctx['lista_comentarios'] = comentarios
 

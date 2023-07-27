@@ -13,7 +13,6 @@
             <img src="{{n.imagen.url}}" class="card-img-top" alt="Imagen de la noticia" style="height: 150px; object-fit: contain;">
             <div class="card-body">
               <h5 class="card-title">{{n.titulo}}</h5>
-              <p class="card-text">{{n.descripcion}}</p>
               <a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer mas</a>
             </div>
         </div>

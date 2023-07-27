@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block contenido %}
-<div class="section container ">
-	<div class="row text-bg-dark p-4">
-		<div class="col-12">
+<div class="section container mt-3">
+	<div class="row text-bg-dark p-2">
+		<div class="col-12 pt-2">
 			<h4>Mis comentarios</h4>
 			<hr>
 		</div>
@@ -18,7 +18,7 @@
 						{% endfor %}
 					</div>
 					<h5 class="card-title">{{n.titulo}}</h5>
-					<p>{{n.creado}}</p>
+					<p><em>{{n.creado}}</em></p>
 					<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer más</a>
 				</div>
 			</div>

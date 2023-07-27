@@ -27,6 +27,15 @@ body{
     color: #000;
 }
 
+.icon2{
+  font-size: 2rem;
+  color: #aaa;
+}
+
+.icon2:hover{
+  color: #777;
+}
+
 .icon:hover{
     color: #291257;
 }
@@ -195,14 +204,12 @@ body{
 }
 
 /*  FORMULARIO REGISTRO */
-#contenedor-registro{
-  width: 50% !important;
-}
 
 
-@media (min-width:992px) {
- #contenedor-registro{
-  width:100%;
+
+@media (max-width:992px) {
+ .contenedor-registro{
+  width:100% !important;
  }
 }
  
