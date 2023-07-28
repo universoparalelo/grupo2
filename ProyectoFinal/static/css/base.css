@@ -212,6 +212,16 @@ body{
   width:100% !important;
  }
 }
+
+/* LINKS SOBRE NOSOTROS */
+
+.linkGithub{
+  color: #ccc;
+}
+
+.link-github:hover{
+  color: #666;
+}
  
 
 

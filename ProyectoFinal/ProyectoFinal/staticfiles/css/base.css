@@ -29,7 +29,7 @@ body{
 
 .icon2{
   font-size: 2rem;
-  color: #ff3;
+  color: #aaa;
 }
 
 .icon2:hover{
@@ -204,15 +204,24 @@ body{
 }
 
 /*  FORMULARIO REGISTRO */
-#contenedor-registro{
-  width: 50% !important;
+
+
+
+@media (max-width:992px) {
+ .contenedor-registro{
+  width:100% !important;
+ }
 }
 
+/* LINKS SOBRE NOSOTROS */
 
-@media (min-width:992px) {
- #contenedor-registro{
-  width:100%;
- }
+.link-github{
+  color: #ccc;
+
+}
+
+.link-github:hover{
+  color: #666;
 }
  
 
