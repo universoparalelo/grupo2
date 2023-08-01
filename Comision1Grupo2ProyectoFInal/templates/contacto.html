@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container p-3 text-bg-dark m-3 mx-auto">
+    <div class="d-lg-flex gap-2 align-items-center">
+        <div class="text-center mx-auto">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14163.203087721158!2d-58.99416278730096!3d-27.444319015623673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450c5f32887753%3A0xf1624bc106f8101f!2sMinisterio%20de%20Trabajo%2C%20Empleo%20y%20Seguridad%20Social!5e0!3m2!1ses!2sar!4v1690121237439!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="text-center mx-auto">
+            <h5 class="text-center my-4 fs-4" >Más sobre este proyecto</h5>
+            <div class="col-12 mb-4" >
+                <a href="#" class="mx-3"><i class="fa fa-brands fa-youtube icon2"></i></a>
+                <a href="#" class="mx-3"><i class="fa fa-brands fa-github icon2"></i></a>
+                <a href="#" class="mx-3"><i class="fa fa-brands fa-envelope icon2"></i></a>
+                <a href="#" class="mx-3"><i class="fa fa-brands fa-linkedin icon2"></i></a>
+              </div>
+              <h5 class="text-center mt-4 mb-2 fs-4" >Links de interes</h5>
+              <ul class="text-center list-unstyled">
+                <li class=""><a class="text-light d-block py-2 links-interes" href="https://www.un.org/sustainabledevelopment/es/objetivos-de-desarrollo-sostenible/">Naciones Unidas</a></li>
+                <li class=""><a class="text-light d-block py-2 links-interes" href="https://www.cepal.org/es/temas/agenda-2030-desarrollo-sostenible/objetivos-desarrollo-sostenible-ods">Objetivos ODS 2030</a></li>
+                <li class=""><a class="text-light d-block py-2 links-interes" href="https://www.un.org/sustainabledevelopment/es/development-agenda/">Agenda del DS</a></li>
+                <li class=""><a class="text-light d-block py-2 links-interes" href="https://www.un.org/sustainabledevelopment/es/progress-report/">Informes sobre progresos</a></li>
+              </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="section mt-3 text-bg-dark col-sm-12 offset-sm-0">
+            <h3 class="pt-3">Contáctanos</h3>
+            <hr>
+            <form action="https://formspree.io/f/mnqkjqvn" method="post" name="contacto" id ="contacto" >
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingName" placeholder="Nombre" name="nombre">
+                <label for="floatingName">Nombre</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                <label for="floatingInput">Email</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingAsunto" placeholder="Asunto" name="asunto-cliente">
+                <label for="floatingAsunto">Asunto</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Comentario" id="floatingTextarea" name="comentario"></textarea>
+                <label for="floatingTextarea">Comentario</label>
+            </div>
+            <button type="submit" class="btn btn-go mx-auto d-block px-3 mb-3">Enviar</button>
+        </form>
+        </div>
+        
+    </div>
+</div>
+{% endblock contenido %}

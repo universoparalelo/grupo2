@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="section container mt-3 text-bg-dark">
+    <h3 class="pt-3">Sobre nosotros</h3>
+    <p>Somos estudiantes de la 2da etapa ''Desarrollo Web'' del Informatorio. Conformamos un equipo de desarrollo de 5 integrantes, trabajando en conjunto y de manera remota. </p>
+    <hr>
+    <h3 class="">Sobre el proyecto</h3>
+    <p> Este es un proyecto de tipo 'blog' creado enteramente por el grupo, el cual cuenta con las siguientes caracteristicas:</p>
+    <li>Construido con el framework Django, utilizando Python como lenguaje de programación principal.</li>
+    <li>Conectado a una base de datos sqlite3, para persistir registros de usuarios, fotos, noticias, etc.</li>
+    <li>Para la interfaz visual utlizamos el lenguaje de marcado HTML para crear los templates y para agregarle estilos el framework de Boostrap, que utiliza el método de las clases.</li>
+    <li>Fue desarrollado en el patron de arquitectura 'MVC', en django aplicado como 'MVT', Modelo Vista Template.</li>
+    <hr>
+    <h4>Miembros del equipo</h4>
+        <div class="text-bg-dark">
+            <ul class="ps-0 list-unstyled" >
+                <li class="mt-3"><a target="_blank" href="https://github.com/universoparalelo" class="mx-3 fs-5 text-decoration-none icon2"><em>Celeste Martin Rodich </em><i class="mx-2 fa fa-brands fa-github icon2"></i></a></li>
+                <li class="mt-3"><a target="_blank" href="https://github.com/Gabriel-Fernando-Vazquez" class="mx-3 fs-5 text-decoration-none icon2"><em>Gabriel Vazquez </em><i class="mx-2 fa fa-brands fa-github icon2"></i></a></li>
+                <li class="mt-3"><a target="_blank" href="https://github.com/LeandroGomezz" class="mx-3 fs-5 text-decoration-none icon2"><em>Leandro Emanuel Gomez </em><i class="mx-2 fa fa-brands fa-github icon2"></i></a></li>
+                <li class="mt-3"><a target="_blank" href="https://github.com/nicoguazo" class="mx-3 fs-5 text-decoration-none icon2"><em>Nicolas Alfredo Guazo </em><i class="mx-2 fa fa-brands fa-github icon2"></i></a></li>
+                <li class="mt-3"><a target="_blank" href="https://github.com/FacundoLeiva12" class="mx-3 fs-5 text-decoration-none icon2"><em>Facundo Leiva </em><i class="mx-2 fa fa-brands fa-github icon2"></i></a></li>
+            </ul>
+        </div>
+    <hr>
+</div>
+{% endblock contenido %}

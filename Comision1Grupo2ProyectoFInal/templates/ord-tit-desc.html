@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="section container ">
+		
+	<div class="dropdown my-2">
+		<button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<i class="fa fa-solid fa-filter"></i>
+		</button>
+		<ul class="dropdown-menu bg-dark text-light">
+		  <li><a class="dropdown-item bg-dark text-light" href="{% url 'noticias:categorias' %}">Categorias</a></li>
+		  <li><a class="dropdown-item bg-dark text-light" href="{% url 'ord-fecha-desc' %}">Primeras noticias</a></li>
+		  <li><a class="dropdown-item bg-dark text-light" href="{% url 'ord-tit-asc' %}">Titulos asc</a></li>
+          <li><a class="dropdown-item bg-dark text-light" href="{% url 'ord-tit-desc' %}">Titulos desc</a></li>
+		</ul>
+	</div>
+	<div class="row text-bg-dark p-4">
+		<div class="col-12">
+			<h4>Noticias ordenadas por titulo en orden descendiente</h4>
+			<hr>
+		</div>
+			{% for n in object_list %}
+			<div class="card text-bg-dark col-sm-12 col-md-6 col-lg-4">
+				<img src="{{n.imagen.url}}" class="card-img-top my-2" alt="..." style="height: 150px; object-fit: contain;">
+				<div class="d-flex">
+					{% for cat in n.categoria.all %}
+					<div class="btn-categoria-{{cat.pk}}" style="width: 15px; height: 10px;" title="{{cat.nombre}}"></div>
+					{% endfor %}
+					</div>
+				<div class="card-body">
+					<h5 class="card-title">{{n.titulo}}</h5>
+					<p><em>{{n.creado}}</em></p>
+					<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer más</a>
+				</div>
+			</div>
+			{% endfor %}
+	</div>
+</div>
+<hr>
+{% endblock contenido %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container m-3 p-2 text-bg-dark mx-auto">
+    <div class="row">
+        <h4 class="">Seleccione una categoria para ver noticias relacionadas</h4>
+    </div>
+    <hr class="mb-3">
+    <div class="row">
+        <a href="https://www.argentina.gob.ar/politicassociales/ods/institucional/17objetivos" target="_blank" class="text-decoration-none text-light mb-3">Para conocer mas sobre los objetivos - - > </a>
+        {% for n in object_list %}
+        <div class="card col-xs-12 col-sm-6 col-md-3 col-lg-2 bg-dark">
+            <a href="{% url 'noticias:not_categoria' n.pk %}" class="text-decoration-none">
+                <img class="img-cat d-block mx-auto" src="{{n.imagen_cat.url}}" alt="Imagen de la categoria">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock contenido %}

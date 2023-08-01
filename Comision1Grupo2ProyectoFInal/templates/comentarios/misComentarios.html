@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="section container mt-3">
+	<div class="row text-bg-dark p-2">
+		<div class="col-12 pt-2">
+			<h4>Mis comentarios</h4>
+			<hr>
+		</div>
+			{% for n in com %}
+			<div class="card text-bg-dark col-sm-12 col-md-6 col-lg-4">
+				<img src="{{n.imagen.url}}" class="card-img-top" alt="..." style="height: 150px; object-fit: contain;">
+				<div class="card-body">
+					<div class="d-flex pb-2">
+						{% for cat in n.categoria.all %}
+						<div class="btn-categoria-{{cat.pk}}" style="width: 15px; height: 10px;" title="{{cat.nombre}}"></div>
+						{% endfor %}
+					</div>
+					<h5 class="card-title">{{n.titulo}}</h5>
+					<p><em>{{n.creado}}</em></p>
+					<a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer más</a>
+				</div>
+			</div>
+			{% endfor %}
+	</div>
+</div>
+<hr>
+{% endblock contenido %}

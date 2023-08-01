@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<div class="container text-bg-dark my-3">
+	{% if perms.noticias.add_noticia %}
+    <div class="row">
+            <a class="col-lg-12 btn-go btn" href="{% url 'noticias:crearNoticia' %}" class="btn-go btn">Crear una noticia</a>
+    {% endif %}    
+    </div>
+    <div class="row">
+        {% for n in object_list %}
+			<div class="card text-bg-dark col-sm-12 col-md-6 col-lg-4 my-3">
+				<img src="{{n.imagen.url}}" class="card-img-top" alt="Imagen de la noticia" style="height: 150px; object-fit: contain;">
+				<div class="card-body">
+				  <h5 class="card-title">{{n.titulo}}</h5>
+				  <div class="d-flex pb-2">
+					{% for cat in n.categoria.all %}
+					<div class="btn-categoria-{{cat.pk}}" style="width: 15px; height: 10px;" title="{{cat.nombre}}"></div>
+					{% endfor %}
+					</div>
+				  <a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer mas</a>
+				  <a href="{% url 'noticias:modificar_noticia' n.pk %}" class="btn btn-go"><i class="fa fa-regular fa-feather"></i></a>
+				  <a href="{% url 'noticias:borrar_noticia' n.pk %}" class="btn btn-go"><i class="fa fa-solid fa-trash"></i></a>
+				</div>
+			</div>
+		{% endfor %}
+    </div>
+</div>
+
+{% endblock contenido %}

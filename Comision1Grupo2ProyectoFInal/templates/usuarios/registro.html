@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block contenido %}
+<section class="w-100">
+    <div class="container text-bg-dark my-3 w-50 contenedor-registro">
+        <div class="row pt-3">
+            <h2>Registro</h2>
+            <hr>
+        </div>
+        <div class="row pb-3">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form.errors}} 
+
+                <div class="form-outline form-white mb-n1 mb-2">
+                    <label for="{{ form.first_name.id_for_label }}">Nombre</label>
+                    {{ form.first_name|add_class:"form-control " }}
+                </div>
+    
+                <div class="form-outline form-white mb-n1 mb-2">
+                    <label for="{{ form.last_name.id_for_label }}">Apellido</label>
+                    {{ form.last_name|add_class:"form-control" }}
+                </div>
+                <div class="form-outline form-white mb-n1 mb-2">
+                    <label for="{{ form.username.id_for_label }}">Nombre de usuario</label>
+                    {{ form.username|add_class:"form-control"}}
+                </div>
+                <div class="form-outline form-white mb-n1 mb-2">
+                    <label for="{{ form.last_name.id_for_label }}">Email</label>
+                    {{ form.email|add_class:"form-control" }}
+                </div>
+                <div class="form-outline form-white mb-n1 mb-2">
+                    <label for="{{ form.password1.id_for_label }}">Contraseña</label>
+                    {{ form.password1|add_class:"form-control" }}
+                </div>
+                <div class="form-outline form-white mb-n1 mb-2">
+                    <label for="{{ form.password2.id_for_label }}">Confirme su contraseña</label>
+                    {{ form.password2|add_class:"form-control" }}
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-go d-block w-100 mt-3" type="submit">Crear cuenta</button>
+                </div>  
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock contenido %}

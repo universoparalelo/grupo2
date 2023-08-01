@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container" style="text-align: center; padding-top: 20px;">
+    <h4 style="color: white;padding-bottom: 10px;">Ordenar por</h4>
+    <button style="color:white;" class="btn btn-go mx-2 mb-2" onclick="window.location.href='?orden=titulo_desc'">Titulo Desc</button>
+    <button style="color:white;" class="btn btn-go mb-2 mb-2" onclick="window.location.href='?orden=titulo_asc'" >Titulo Asc</button>
+    <button style="color:white;" class="btn btn-go mx-2 mb-2" onclick="window.location.href='?orden=noti_nuevas'" >Mas Nuevos</button>
+    <button style="color:white;" class="btn btn-go mx.2 mb-2" onclick="window.location.href='?orden=noti_viejas'" >Mas Antiguos</button>
+</div>
+<div class="container m-3 py-2 px-3 text-bg-dark mx-auto">
+    <div class="row m-2">
+        <h2 >{{nom_cat.nombre}}</h2>
+        <hr>
+    </div>
+    <div class="row m-2">
+        {% for n in noticia %}
+        <div class="card text-bg-dark col-sm-12 col-md-6 col-lg-4 my-3">
+            <img src="{{n.imagen.url}}" class="card-img-top" alt="Imagen de la noticia" style="height: 150px; object-fit: contain;">
+            <div class="card-body">
+              <h5 class="card-title">{{n.titulo}}</h5>
+              <a href="{% url 'noticias:detalle_noticia' n.pk %}" class="btn btn-go">Leer mas</a>
+              <p><em>{{n.creado}}</em></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock contenido %}

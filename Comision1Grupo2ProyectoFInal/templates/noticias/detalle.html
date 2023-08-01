@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+  <div class="container text-bg-dark m-3 p-3 mx-auto">
+          <!-- <a href="{% url 'inicio' %}">
+            <i class="fa fa-solid fa-chevron-left btn btn-go" style="color: white; margin-right: 2rem;"></i>
+          </a> -->
+          <div class="text-center">
+              <h1 class="fs-30 fw-bold">{{detalle.titulo}}</h1>
+          <h4 style="color: #aaa;">{{detalle.descripcion}}</h4>
+          </div>
+        <h6>Fecha de publicacion: {{detalle.creado}}</h6>
+        <h6>Autor: {{detalle.autor}}</h6>
+          <div class="d-lg-flex">
+            {% if detalle.categoria %}
+            {% for n in detalle.categoria.all %}
+            <a href="{% url 'noticias:not_categoria' n.pk %}" style="border-right: 1px solid #fff; color:#fff;" class=" text-decoration-none px-2 btn-categoria btn-categoria-{{n.pk}}">{{n.nombre}}</a>
+            {% endfor %}
+            {% endif %}
+          </div>
+        <hr>
+        <img class="rounded mx-auto d-block" src="{{detalle.imagen.url}}" alt="Imagen de la noticia" width="400px">
+        <p class="mx-auto w-75 pt-3">{{detalle.contenido}}</p>
+        <p class="italic">Ultima modificacion: {{detalle.modificado}}</p>
+        
+          <div class="d-flex justify-content-end">
+            {% if perms.noticias.change_noticia%}
+            <a href="{% url 'noticias:modificar_noticia' detalle.pk %}" class="btn btn-go mx-4"><i class="fa fa-regular fa-feather"></i></a>
+            {% endif%}
+            {% if perms.noticias.delete_noticia%}
+            <a href="{% url 'noticias:borrar_noticia' detalle.pk %}" class="btn btn-go me-4"><i class="fa fa-solid fa-trash"></i></a>
+            {% endif%} 
+          </div>
+          
+        <hr>
+        <h4>COMENTARIOS</h4>
+        <div class="row" class="mb-3">
+          {% if user.is_authenticated %}
+              <form class="m-1" method="POST" action="{% url 'comentarios:agregar_comentarios' detalle.pk %}">{%csrf_token%}
+
+                <textarea class="col-12" type="text" name="comentario">
+
+                </textarea>
+                <input class="btn-go btn mb-3" type="submit" name="" value="Guardar">
+              </form>
+              <hr>
+          {% endif %}
+          
+          {% for n in lista_comentarios %}
+          <div>
+            <h4>{{n.usuario}}</h4>
+            <p>{{n.texto}}</p>
+            <p>{{n.creado}}</p>
+            <div class="mb-2">
+              {% if perms.comentarios.change_comentario or user == n.usuario %} 
+              <a href="{% url 'comentarios:modificar_comentario' n.pk %}" class="btn btn-go"><i class="fa fa-regular fa-feather"></i></a>
+              {% endif %}
+              {% if perms.comentarios.delete_comentario or user == n.usuario %}
+				      <a href="{% url 'comentarios:borrar_comentario' n.pk %}" class="btn btn-go"><i class="fa fa-solid fa-trash"></i></a>
+            </div>
+              {% endif %}
+          </div>
+          <hr>
+          {% endfor %}
+          </div>
+  </div>
+</div>
+
+{% endblock contenido %}

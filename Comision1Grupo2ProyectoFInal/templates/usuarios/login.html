@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="form container text-bg-dark m-3 p-3 mx-auto w-50">
+    <h3>Inicio sesión</h3>
+    <hr>
+    <div class="row py-auto">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.errors}} 
+
+          <div class="form-outline form-white mb-n1 mb-3">
+              <label class="form-label" for="username">Nombre de usuario</label>
+              <input type="text" id="username" name="username" class="form-control form-control-lg" required>
+          </div>
+
+          <div class="form-outline form-white mb-n1 mb-3">
+              <label class="form-label" for="password">Contraseña</label>
+              <input type="password" id="password" name="password" class="form-control form-control-lg" required>
+          </div>
+          <!-- <p class="small mb-1 pb-lg-2"><a class="text-white-50" href="#!">Olvidaste tu contraseña?</a></p> -->
+          <button class="btn btn-go mx-3 d-block mt-3 mx-auto" type="submit">Iniciar sesion</button>
+        </form>
+    </div>
+</div>
+{% endblock contenido %}

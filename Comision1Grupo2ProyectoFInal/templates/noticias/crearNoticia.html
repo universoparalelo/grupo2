@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block contenido %}
+
+  
+<div class="container m-3 mx-auto py-2 px-3 text-bg-dark">
+    <div class="d-lg-flex gap-5">
+        <div class="mx-auto w-lg-50">
+          <h2 class="pt-2" style="color: #999;">Creacion de noticia</h2>
+          <hr>
+          <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.errors}} 
+            <div class="form-outline form-white mb-3">
+              <label class="p-1" for="{{ form.titulo.id_for_label}}">Titulo</label>
+              {{ form.titulo|add_class:"form-control mb-n1" }}
+            </div>
+            <div class="form-outline form-white mb-3">
+              <label class="p-1" for="{{ form.descripcion.id_for_label}}">Descripcion</label>
+              {{ form.descripcion|add_class:"form-control mb-n1" }}
+            </div>
+            <div class="form-outline form-white mb-3">
+              <label class="p-1" for="{{ form.contenido.id_for_label }}">Contenido</label>
+              {{ form.contenido|add_class:"form-control form-control-lg "}}
+            </div>
+            <div class="form-outline form-white mb-3">
+              <label class="p-1" for="{{ form.imagen.id_for_label }}">Imagen</label>
+              {% render_field form.imagen class="search-label-icon" %}
+            </div>         
+          
+        </div>
+        <div class="mx-auto w-lg-50">
+            <div class="form-group">
+              <h2 class="pt-3" style="color: #999;">Categorias</h2>
+              <hr>
+              {% for c in form.categoria %}
+                <div class="text-light form-check">
+                    {{ c }}  
+                </div>
+              {% endfor %}
+              
+            </div>
+        </div>
+            
+    </div> 
+    <button class="btn btn-go mt-3 d-block w-100" type="submit">CREAR</button> 
+  </form>
+</div>     
+  
+  {% endblock contenido %}
+        
+
+  
